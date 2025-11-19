@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.Module;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class MapperConfig {
     @Bean
     public Module hibernateModule() {

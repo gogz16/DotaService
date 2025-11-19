@@ -1,10 +1,12 @@
 package a.syrov.api.controller;
 
 import a.syrov.api.dao.TacticDAO;
+import a.syrov.api.dto.TacticDTO;
 import a.syrov.api.entity.Pick;
 import a.syrov.api.entity.Tactic;
 import a.syrov.api.service.PickService;
 import a.syrov.api.service.TacticService;
+import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +28,8 @@ public class TacticController {
     }
 
     @GetMapping
-    public List<Tactic> getAllTactics() {
+    @Transactional
+    public List<TacticDTO> getAllTactics() {
         return tacticService.getAllTactics();
     }
 

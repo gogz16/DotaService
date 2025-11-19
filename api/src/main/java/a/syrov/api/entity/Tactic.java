@@ -16,4 +16,6 @@ public class Tactic {
 
     @ManyToOne
     private Team team;
+    @OneToMany(mappedBy = "tactic")
+    private List<Pick> picks;
 }
