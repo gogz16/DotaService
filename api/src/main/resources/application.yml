@@ -1,4 +1,7 @@
+
 spring:
+  application:
+    name: api
   datasource:
     url: jdbc:mysql://localhost:3306/dota?useUnicode=true&characterEncoding=utf8&createDatabaseIfNotExist=true
     username: root
@@ -11,3 +14,8 @@ spring:
 logging:
   level:
     org.hibernate: TRACE
+server:
+  port: 0
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}

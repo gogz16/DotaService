@@ -9,11 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>a.syrov</groupId>
-    <artifactId>springdota</artifactId>
+    <artifactId>replay</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springdota</name>
-    <description>springdota</description>
-    <packaging>pom</packaging>
+    <name>replay</name>
+    <description>replay</description>
     <url/>
     <licenses>
         <license/>
@@ -28,27 +27,24 @@
         <url/>
     </scm>
     <properties>
-        <java.version>23</java.version>
-        <spring-cloud.version>2025.0.0</spring-cloud.version>
+        <java.version>21</java.version>
     </properties>
-    <modules>
-        <module>api</module>
-        <module>discovery</module>
-        <module>gateway</module>
-        <module>replay</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
