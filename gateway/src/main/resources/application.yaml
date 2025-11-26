@@ -1,25 +1,30 @@
 spring:
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: api
-              uri:
-                lb://api
-              predicates:
-                - Path=/api/**
-            - id: replay
-              uri:
-                lb://replay
-              predicates:
-                - Path=/replay/**
-          default-filters:
-            - name: Retry
-              args:
-                retries: 3
-                methods: GET,POST,PUT,DELETE
+      routes:
+        - id: api
+          uri: lb://api
+          predicates:
+            - Path=/api/**
+        - id: replay
+          uri: lb://replay
+          predicates:
+            - Path=/replay/**
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
   application:
     name: gateway
-
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
